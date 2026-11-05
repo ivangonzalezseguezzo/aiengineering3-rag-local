@@ -1,0 +1,20 @@
+# Secretos
+.env
+
+# Índice vectorial local (se regenera con python ingest.py)
+vectorstore/
+
+# Entornos virtuales
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Editores / SO
+.vscode/
+.idea/
+.DS_Store
