@@ -1,0 +1,56 @@
+{
+  "fecha": "2026-11-05T01:32:32",
+  "llm": "gemini:gemini-3.5-flash-lite",
+  "embeddings": "huggingface:intfloat/multilingual-e5-small",
+  "top_k": 4,
+  "chunking": {
+    "chunk_size": 500,
+    "chunk_overlap": 50
+  },
+  "casos": [
+    {
+      "caso": "Pregunta con respuesta en los documentos",
+      "aprobado": true,
+      "verificaciones": {
+        "respuesta_encontrada": true,
+        "cita_la_fuente_esperada": true,
+        "no_dice_no_lo_se": true
+      },
+      "salida": {
+        "pregunta": "¿Qué porcentaje del tráfico recibe un despliegue en la primera etapa del canary y durante cuánto tiempo?",
+        "respuesta": "En la primera etapa del canary, el despliegue recibe un 5 % del tráfico durante un tiempo mínimo de 15 minutos.",
+        "respuesta_encontrada": true,
+        "referencias": [
+          {
+            "fragmento": 1,
+            "archivo": "politica_despliegues.md",
+            "titulo": "Política de despliegues a producción",
+            "seccion": "Despliegue progresivo (canary)",
+            "chunk_id": "politica_despliegues.md::chunk-001",
+            "distancia": 0.1461,
+            "extracto": "5. El cambio está asociado a un ticket con la descripción del riesgo y el plan de rollback. ## Despliegue progresivo (canary) Ningún servicio tier 1 se desplieg"
+          }
+        ],
+        "fragmentos_recuperados": 4,
+        "latencia_s": 18.311
+      }
+    },
+    {
+      "caso": "Pregunta trampa (fuera de los documentos)",
+      "aprobado": true,
+      "verificaciones": {
+        "respuesta_no_encontrada": true,
+        "responde_no_lo_se": true,
+        "sin_referencias": true
+      },
+      "salida": {
+        "pregunta": "¿Cuántos días de vacaciones anuales les corresponden a los ingenieros que hacen guardias?",
+        "respuesta": "No lo sé. La documentación provista no contiene información sobre la cantidad de días de vacaciones anuales que les corresponden a los ingenieros.",
+        "respuesta_encontrada": false,
+        "referencias": [],
+        "fragmentos_recuperados": 4,
+        "latencia_s": 12.221
+      }
+    }
+  ]
+}

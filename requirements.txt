@@ -1,0 +1,21 @@
+# LangChain
+langchain-core>=1.7
+langchain-text-splitters>=1.1
+langchain-chroma>=1.1
+
+# Base vectorial local
+chromadb>=1.5
+
+# Embeddings locales (proveedor por defecto, sin API key)
+langchain-huggingface>=1.2
+sentence-transformers>=6.0
+
+# Proveedores de LLM (alcanza con el que configures en LLM_PROVIDER)
+langchain-google-genai>=4.4
+langchain-openai>=1.7
+langchain-anthropic>=1.7
+
+# Utilidades
+tiktoken>=0.14
+pydantic>=2.7
+python-dotenv>=1.0
